@@ -10,9 +10,9 @@ public class Main {
 		System.out.println("4 : Create Table For Guests");
 		System.out.println("5 : Create Table For Employee Type");
 		System.out.println("6 : Create Table For Employees ");
-		System.out.println("7 : Insertion of  10,000 Hotels ");
-		System.out.println("8 : Insertion of 1 Hotel");
-		System.out.println("9 : Printing 10 Hotels");
+		System.out.println("7 : Insertion of  A Number Hotels ");
+		System.out.println("8 : Showing A Number Of Hotels");
+		System.out.println("9 : Showing A Row Based On Selcted ID");
 		System.out.println("10: Making the first 10 Hotels 'is_Active' = false");
 		System.out.println("11: Printing hotel information according to user input");
 		String option = sc.next();
@@ -39,6 +39,10 @@ public class Main {
 		case 7:
 			Hotels.insertIntoTable();
 			break;
+		case 8:
+			Hotels.readFromTable();
+		case 9:
+			Hotels.getById();
 		}
 	}
 }
