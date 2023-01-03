@@ -15,6 +15,7 @@ public class Main {
 		System.out.println("9 : Showing A Row Based On Selcted ID");
 		System.out.println("10: Making the first 10 Hotels 'is_Active' = false");
 		System.out.println("11: Printing hotel information according to user input");
+		System.out.println("12: Printing hotel information according to user input");
 		String option = sc.next();
 		int op = Integer.parseInt(option);
 		switch (op) {
@@ -41,10 +42,18 @@ public class Main {
 			break;
 		case 8:
 			Hotels.readFromTable();
+			break;
 		case 9:
 			Hotels.getById();
+			break;
 		case 10:
 			Hotels.updateById();
+			break;
+		case 11:
+			Hotels.deleteById();
+			break;
+		case 12:
+			Hotels.updateIsActive();
 		}
 	}
 }
