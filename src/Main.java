@@ -43,6 +43,8 @@ public class Main {
 			Hotels.readFromTable();
 		case 9:
 			Hotels.getById();
+		case 10:
+			Hotels.updateById();
 		}
 	}
 }
