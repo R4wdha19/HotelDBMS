@@ -13,14 +13,15 @@ public class Main {
 		System.out.println("7 : Insertion of  A Number Hotels ");
 		System.out.println("8 : Showing A Number Of Hotels");
 		System.out.println("9 : Showing A Row Based On Selcted ID");
-		System.out.println("10: Making the first 10 Hotels 'is_Active' = false");
-		System.out.println("11: Printing hotel information according to user input");
-		System.out.println("12: Printing hotel information according to user input");
+		System.out.println("10: Updating A Row using ID");
+		System.out.println("11: Deleting A Row Using ID");
+		System.out.println("12: Making A Certain Hotel 'is_Active' status false");
 		String option = sc.next();
 		int op = Integer.parseInt(option);
 		switch (op) {
 		case 1:
-			Hotels.CreateHotelsTable();
+			RoomType.insertIntoTable();
+//			Hotels.CreateHotelsTable();
 			break;
 		case 2:
 			RoomType.RoomTypeTableCreation();
