@@ -36,6 +36,9 @@ public class Main {
 		case 6:
 			Employees.EmployeesTableCreation();
 			break;
+		case 7:
+			Hotels.insertIntoTable();
+			break;
 		}
 	}
 }
