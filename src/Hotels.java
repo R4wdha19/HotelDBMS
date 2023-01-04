@@ -160,8 +160,8 @@ System.out.println("RS");
 			con = DriverManager.getConnection(url, user, pass);
 			Statement statement = con.createStatement();
 			ResultSet resultSet = statement.executeQuery(sqlQueryToRead);
-//			int count = 0;
-			while (resultSet.next() ) {
+			int count = 0;
+			while (resultSet.next() && count<=userInput) {
 				Integer id = resultSet.getInt("id");
 				String hotelName = resultSet.getString("hotel_name");
 				String hotelLocation = resultSet.getString("hotel_location");
@@ -171,7 +171,7 @@ System.out.println("RS");
 
 				System.out.println(id + " " + hotelName + " " + hotelLocation + " " + createdDate + " " + updatedDate
 						+ " " + isActive);
-//				count++;
+				count++;
 			}
 			con.close();
 		}
