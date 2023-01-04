@@ -12,7 +12,7 @@ public class Main {
 		System.out.println("6 : Create Table For Employees ");
 		System.out.println("7 : Insertion of  A Number Hotels ");
 		System.out.println("8 : Showing A Number Of Hotels");
-		System.out.println("9 : Showing A Row Based On Selcted ID");
+		System.out.println("9 : Showing A Row Based On Selected ID");
 		System.out.println("10: Updating A Row using ID");
 		System.out.println("11: Deleting A Row Using ID");
 		System.out.println("12: Making A Certain Hotel 'is_Active' status false");
