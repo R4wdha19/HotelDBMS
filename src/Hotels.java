@@ -184,21 +184,21 @@ System.out.println("RS");
 	}
 
 	public static void updateById() {
-		System.out.println(" Please Enter The ID To Updat Its Data");
+		System.out.println(" Please Enter The ID To Update Its Data");
 		Scanner sc1 = new Scanner(System.in);
 		int userInput = sc1.nextInt();
-		System.out.println(" Please Enter The New Hotal Name");
-		String hotalName = sc1.next();
-		System.out.println(" Please Enter The New Hotal Location");
-		String hotalLocation = sc1.next();
+		System.out.println(" Please Enter The New Hotel Name");
+		String hotelName = sc1.next();
+		System.out.println(" Please Enter The New Hotel Location");
+		String hotelLocation = sc1.next();
 		Date date = new Date(System.currentTimeMillis());
 		String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
 
 		String user = "sa";
 		String pass = "root";
 		Connection con = null;
-		String sqlQueryToUpdate = "UPDATE HOTELS SET hotel_name = " + "'" + hotalName + "'" + ", hotel_location = "
-				+ "'" + hotalLocation + "'," + " updated_date = " + "'" + date + "' WHERE id =" + userInput;
+		String sqlQueryToUpdate = "UPDATE HOTELS SET hotel_name = " + "'" + hotelName + "'" + ", hotel_location = "
+				+ "'" + hotelLocation + "'," + " updated_date = " + "'" + date + "' WHERE id =" + userInput;
 		System.out.println(sqlQueryToUpdate);
 		try {
 
@@ -213,12 +213,12 @@ System.out.println("RS");
 			int count = 0;
 			while (resultSet.next() && count <= userInput) {
 				Integer id = resultSet.getInt("id");
-				String hotelName = resultSet.getString("hotel_name");
-				String hotelLocation = resultSet.getString("hotel_location");
+				String hotel_Name = resultSet.getString("hotel_name");
+				String hotel_Location = resultSet.getString("hotel_location");
 				Date createdDate = resultSet.getDate("created_date");
 				Date updatedDate = resultSet.getDate("updated_date");
 				Boolean isActive = resultSet.getBoolean("is_Active");
-				System.out.println(id + " " + hotelName + " " + hotelLocation + " " + createdDate + " " + updatedDate
+				System.out.println(id + " " + hotel_Name + " " + hotel_Location + " " + createdDate + " " + updatedDate
 						+ " " + isActive);
 				count++;
 			}

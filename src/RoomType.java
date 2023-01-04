@@ -149,7 +149,7 @@ public class RoomType {
 		String user = "sa";
 		String pass = "root";
 		Connection con = null;
-		String sqlQueryToRead = "SELECT * FROM Room_Type WHERE id =" + userInput;
+		String sqlQueryToGet = "SELECT * FROM Room_Type WHERE id =" + userInput;
 		try {
 
 			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
@@ -158,7 +158,7 @@ public class RoomType {
 
 			con = DriverManager.getConnection(url, user, pass);
 			Statement statement = con.createStatement();
-			ResultSet resultSet = statement.executeQuery(sqlQueryToRead);
+			ResultSet resultSet = statement.executeQuery(sqlQueryToGet);
 			int count = 0;
 			while (resultSet.next() && count <= userInput) {
 				Integer id = resultSet.getInt("id");
@@ -181,7 +181,7 @@ public class RoomType {
 	}
 
 	public static void updateById() {
-		System.out.println(" Please Enter The ID To Updat Its Data");
+		System.out.println(" Please Enter The ID To Update Its Data");
 		Scanner sc1 = new Scanner(System.in);
 		int userInput = sc1.nextInt();
 		System.out.println(" Please Enter The New Room Type Name");
