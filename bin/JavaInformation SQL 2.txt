@@ -1,0 +1,44 @@
+Create individual/seperate classes for each table
+
+Every class should have functions to:
+public static readFromTable(){
+	take input from user to see how many users you have to print on console
+	use SELECT query and ResultSets for showing
+	
+	}
+	
+public static getById(){
+	take id input from the user
+	print on console
+	use SELECT query and ResultSets for showing
+	}
+
+public static updateById(){
+	take id input from the user
+	print on console
+	use Update query and ResultSets for showing
+	}
+
+public static deleteById() {
+	take id input from the user
+	use Delete query
+	}
+
+public static makeIsActiveFalseById() {
+	take id input from the user
+	use Update query and just update 'is_Active' column
+	}
+
+public insertIntoTable(){
+	take input from user how many number of rows are to be inserted
+	input data in database using INSERT query in a loop
+		Random rn = new Random();
+		Integer numberToAdd = rn.nextInt(100);
+	For string columns use: "rawdha" + numberToAdd;
+
+	For Integer columns use: numberToAdd
+	
+	For Boolean columns use: true
+	
+	
+	}

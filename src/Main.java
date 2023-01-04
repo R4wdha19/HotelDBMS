@@ -19,10 +19,9 @@ public class Main {
 		String option = sc.next();
 		int op = Integer.parseInt(option);
 		switch (op) {
-		case 1:
-			RoomType.insertIntoTable();
-//			Hotels.CreateHotelsTable();
-			break;
+		case 1: 
+		Hotels.CreateHotelsTable();
+		break;
 		case 2:
 			RoomType.RoomTypeTableCreation();
 			break;

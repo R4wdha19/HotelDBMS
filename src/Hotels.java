@@ -11,13 +11,13 @@ public class Hotels {
 	Scanner sc = new Scanner(System.in);
 
 	public static void CreateHotelsTable() {
-
+System.out.println("RS");
 		String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
 
 		String user = "sa";
 		String pass = "root";
 		Connection con = null;
-		String hoteltableCreationsql = "create table  Hotels (id integer PRIMARY KEY, "
+		String hoteltableCreationsql = "create table  Hotels (id integer PRIMARY KEY , "
 				+ "hotel_name VARCHAR (50) not null ,hotel_location VARCHAR (80), "
 				+ "created_date Date not null, updated_date Date , is_Active bit not null)";
 
@@ -160,17 +160,18 @@ public class Hotels {
 			con = DriverManager.getConnection(url, user, pass);
 			Statement statement = con.createStatement();
 			ResultSet resultSet = statement.executeQuery(sqlQueryToRead);
-			int count = 0;
-			while (resultSet.next() && count <= userInput) {
+//			int count = 0;
+			while (resultSet.next() ) {
 				Integer id = resultSet.getInt("id");
 				String hotelName = resultSet.getString("hotel_name");
 				String hotelLocation = resultSet.getString("hotel_location");
 				Date createdDate = resultSet.getDate("created_date");
 				Date updatedDate = resultSet.getDate("updated_date");
 				Boolean isActive = resultSet.getBoolean("is_Active");
+
 				System.out.println(id + " " + hotelName + " " + hotelLocation + " " + createdDate + " " + updatedDate
 						+ " " + isActive);
-				count++;
+//				count++;
 			}
 			con.close();
 		}
