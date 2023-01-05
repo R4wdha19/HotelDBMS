@@ -7,18 +7,12 @@ public class Main {
 	static void mainMenu() {
 
 		System.out.println("Please Select An Option :");
-		System.out.println("1 : Create Table For Hotels ");
-		System.out.println("2 : Create Table For Room Type");
-		System.out.println("3 : Create Table For Rooms ");
-		System.out.println("4 : Create Table For Guests");
-		System.out.println("5 : Create Table For Employee Type");
-		System.out.println("6 : Create Table For Employees ");
-		System.out.println("7 : Insertion of  A Number Hotels ");
-		System.out.println("8 : Showing A Number Of Hotels");
-		System.out.println("9 : Showing A Row Based On Selected ID");
-		System.out.println("10: Updating A Row using ID");
-		System.out.println("11: Deleting A Row Using ID");
-		System.out.println("12: Making A Certain Hotel 'is_Active' status false");
+		System.out.println("1 : HotelMenu ");
+		System.out.println("2 : RooM Type Menu");
+		System.out.println("3 : Room Menu");
+		System.out.println("4 : Guests Menu");
+		System.out.println("5 : Employee Type Menu");
+		System.out.println("6 : Employees Menu ");
 
 	}
 
@@ -33,7 +27,7 @@ public class Main {
 			int op = Integer.parseInt(option);
 			switch (op) {
 			case 1:
-				Hotels.CreateHotelsTable();
+				MyHotels.HotelMenu();
 				break;
 			case 2:
 				RoomType.RoomTypeTableCreation();
@@ -49,24 +43,6 @@ public class Main {
 				break;
 			case 6:
 				Employees.EmployeesTableCreation();
-				break;
-			case 7:
-				Hotels.insertIntoTable();
-				break;
-			case 8:
-				Hotels.readFromTable();
-				break;
-			case 9:
-				Hotels.getById();
-				break;
-			case 10:
-				Hotels.updateById();
-				break;
-			case 11:
-				Hotels.deleteById();
-				break;
-			case 12:
-				Hotels.updateIsActive();
 			}
 		} while (isExit);
 	}
