@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 class MyHotelRooMType {
 	public static void RoomTypeMenu() {
-		boolean isExit1 = true;
-		while (isExit1) {
+		boolean RoomTypeMenu = true;
+		while (RoomTypeMenu) {
 			Scanner sc = new Scanner(System.in);
 			System.out.println(" Let Us Know What You Want To Do, Here Are The Options: ");
 			System.out.println("1 : Create Table For Room Type ");
@@ -43,16 +43,17 @@ class MyHotelRooMType {
 			case 8:
 				System.out.println(" Do You Want To Exit ? If Yes Press 1 If No Press 0 ");
 				int confirmation = sc.nextInt();
+				sc.next();
 				if (confirmation == 1) {
-					isExit1 = false;
-				} else {
-
-					Main.mainMenu();
+					RoomTypeMenu = false;
+//					Main.mainMenu();
 
 				}
-
+				break;
 			}
 
 		}
+		RoomTypeMenu = false;
+
 	}
 }

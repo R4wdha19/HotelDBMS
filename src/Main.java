@@ -19,8 +19,8 @@ public class Main {
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
 
-		boolean isExit = true;
-		do {
+		boolean mainMenu = true;
+		while (mainMenu) {
 
 			mainMenu();
 			String option = sc.next();
@@ -44,7 +44,9 @@ public class Main {
 			case 6:
 				Employees.EmployeesTableCreation();
 			}
-		} while (isExit);
+		}
+		mainMenu = false;
+
 	}
 
 }

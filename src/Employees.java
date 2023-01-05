@@ -14,7 +14,7 @@ public class Employees {
 		String pass = "root";
 
 		String EmployeestableCreationsql = "create table  Employees (id integer PRIMARY KEY ,"
-				+ "employee_type_id int REFERENCES EmployeeType(id)," + "room_id int REFERENCES Hotels(id),"
+				+ "employee_type_id int REFERENCES EmployeeType(id)," + "room_id int REFERENCES Rooms(id),"
 				+ "created_date Date not null," + "updated_date Date," + "is_Active bit not null)";
 
 		Connection con = null;
