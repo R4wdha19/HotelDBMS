@@ -1,9 +1,13 @@
+package src;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -204,30 +208,42 @@ public class Hotels {
 	}
 
 	public static void updateIsActive() {
-		System.out.println(" Please Enter The Number Of Roes  To Update Its Status");
-		Scanner inputScanner = new Scanner(System.in);
-		int userInput = inputScanner.nextInt();
-		String sqlQueryToUpdate = "UPDATE HOTELS SET is_active = 0 where id ='" + userInput + "'";
-		System.out.println(sqlQueryToUpdate);
-		try {
-			Statement statement = con.createStatement();
-			ResultSet resultSet = statement.executeQuery(sqlQueryToUpdate);
-			System.out.println(resultSet);
-			while (resultSet.next()) {
-				Integer id = resultSet.getInt("id");
-				String hotelName = resultSet.getString("hotel_name");
-				String hotelLocation = resultSet.getString("hotel_location");
-				Date createdDate = resultSet.getDate("created_date");
-				Date updatedDate = resultSet.getDate("updated_date");
-				Boolean isActive = resultSet.getBoolean("is_Active");
-				System.out.println(id + " " + hotelName + " " + hotelLocation + " " + createdDate + " " + updatedDate
-						+ " " + isActive);
-			}
-//            closingConnection();
-		} catch (Exception ex) {
 
-			System.err.println(ex);
+		Scanner inputScanner = new Scanner(System.in);
+		System.out.println(" Please Enter The Number Of Rows  To Update Its Status");
+		int userInput = inputScanner.nextInt();
+		String sqlQueryToSelect = "SELECT TOP " + userInput + " id FROM Hotels";
+		Statement statement;
+		List<Integer> listOfIds = new ArrayList<>();
+		try {
+			System.out.println(sqlQueryToSelect);
+			statement = con.createStatement();
+			ResultSet resultSet = statement.executeQuery(sqlQueryToSelect);
+
+			while (resultSet.next()) {
+
+				listOfIds.add(resultSet.getInt(1));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+		for (Integer i : listOfIds) {
+			System.out.println("Id is: " + i);
+			String sqlQueryToUpdate = "UPDATE HOTELS SET is_active = 0 where id = " + i;
+			System.out.println(sqlQueryToUpdate);
+			try {
+				statement = con.createStatement();
+				int resultSet = statement.executeUpdate(sqlQueryToUpdate);
+				System.out.println(resultSet);
+
+//				closingConnection();
+			} catch (Exception ex) {
+
+				System.err.println(ex);
+			}
+		}
+
 	}
 
 }
