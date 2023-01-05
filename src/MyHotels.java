@@ -6,7 +6,7 @@ class MyHotels {
 
 	public static void HotelMenu() {
 		boolean isExit = true;
-		do {
+		while (isExit) {
 			Scanner sc = new Scanner(System.in);
 			System.out.println(" Let Us Know What You Want To Do, Here Are The Options: ");
 			System.out.println("1 : Create Table For Hotels ");
@@ -40,11 +40,14 @@ class MyHotels {
 				break;
 			case 7:
 				Hotels.updateIsActive();
+				break;
 			case 8:
 				Main.mainMenu();
+				break;
 			}
 
-		} while (isExit);
+		}
+		isExit = false;
 	}
 
 }

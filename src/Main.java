@@ -30,7 +30,7 @@ public class Main {
 				MyHotels.HotelMenu();
 				break;
 			case 2:
-				RoomType.RoomTypeTableCreation();
+				MyHotelRooMType.RoomTypeMenu();
 				break;
 			case 3:
 				Rooms.RoomTableCreation();
