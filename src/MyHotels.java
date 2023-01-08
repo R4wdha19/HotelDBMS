@@ -5,8 +5,8 @@ import java.util.Scanner;
 class MyHotels {
 
 	public static void HotelMenu() {
-		boolean isExit = true;
-		while (isExit) {
+		boolean HotelMenu = true;
+		while (HotelMenu) {
 			Scanner sc = new Scanner(System.in);
 			System.out.println(" Let Us Know What You Want To Do, Here Are The Options: ");
 			System.out.println("1 : Create Table For Hotels ");
@@ -47,7 +47,7 @@ class MyHotels {
 			}
 
 		}
-		isExit = false;
+		HotelMenu = false;
 	}
 
 }

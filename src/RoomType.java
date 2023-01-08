@@ -39,15 +39,15 @@ public class RoomType {
 
 	public static void RoomTypeTableCreation() {
 
-		String Room_TypetableCreationsql = "create table  Room_Type (id integer PRIMARY KEY IDENTITY(1,1),"
+		String roomTypeTableCreationSql = "create table  Room_Type (id integer PRIMARY KEY IDENTITY(1,1),"
 				+ "room_type_name VARCHAR (80) not null, created_date Date , " + "updated_date Date,"
 				+ "is_Active bit not null )";
 		try {
 
 			Statement st = con.createStatement();
-			int executing = st.executeUpdate(Room_TypetableCreationsql);
+			int executing = st.executeUpdate(roomTypeTableCreationSql);
 			if (executing >= 0) {
-				System.out.println("Created Successfully : " + Room_TypetableCreationsql);
+				System.out.println("Created Successfully : " + roomTypeTableCreationSql);
 			} else {
 				System.out.println("Creation Is Failed");
 			}
