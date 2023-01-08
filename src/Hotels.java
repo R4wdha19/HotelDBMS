@@ -70,9 +70,8 @@ public class Hotels {
 			Date date = new Date(System.currentTimeMillis());
 
 			System.out.println(date);
-			String sqlQueryToInsert = "  INSERT INTO Hotels (hotel_Name,hotel_Location,created_date,updated_date,is_Active)"
-					+ " VALUES ( '" + hotelName + "'," + " ' " + hotelLocation + "'   " + ", '" + date + "','" + date
-					+ "', 1) ";
+			String sqlQueryToInsert = "  INSERT INTO Hotels (hotel_Name,hotel_Location,created_date,is_Active)"
+					+ " VALUES ( '" + hotelName + "'," + " ' " + hotelLocation + "','" + date + "'" + ", 1) ";
 
 			System.out.println("This is the query: " + sqlQueryToInsert);
 

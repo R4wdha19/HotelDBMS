@@ -33,10 +33,11 @@ public class Main {
 				MyHotelRooMType.RoomTypeMenu();
 				break;
 			case 3:
-				Rooms.RoomTableCreation();
+				Rooms.insertIntoTable();
 				break;
 			case 4:
-				Guests.GuestsTableCreation();
+				Rooms.CreateRoomsTable();
+				;
 				break;
 			case 5:
 				EmployeeType.EmployeeTypeTableCreation();

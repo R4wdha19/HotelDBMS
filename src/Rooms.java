@@ -1,6 +1,11 @@
 package src;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -53,74 +58,81 @@ public class Rooms {
 		System.out.println(" Please Enter The Number Of Rows To Be Added");
 		Scanner inputScanner = new Scanner(System.in);
 		int userInput = inputScanner.nextInt();
+		Date date = new Date(System.currentTimeMillis());
 		Random rn = new Random();
+		Statement st = null;
+		Integer idForRoomType = 1; // Setting a default value In case of error
+		Integer idForHotel = 1;
+		// My options start with 1 therefore we did 1 if i make it 0 it will rise an
+		// error and it will by default 0 but that is not an option.
+//		// So we make a choice that when there is an error the assigned roomTypeName is STANDARD by default
 		for (int i = 0; i <= userInput; i++) {
 			Integer numberOfRandomUserInput = rn.nextInt(userInput); // ()my limit
 
-
-			Scanner scanner=new Scanner(System.in);
-			System.out.println(" Which Room Type Do You Want ? " +
-					" 1 : STANDARD " +
-					" 2 : DELUXE" +
-					" 3 : SINGLE");
-			int roomType=scanner.nextInt();
+			Scanner scanner = new Scanner(System.in);
+			System.out.println(" Which Room Type Do You Want ? " + " 1 : STANDARD " + " 3 : DELUXE" + " 4 : SINGLE");
+			int roomType = scanner.nextInt();
 			String roomTypeName = "";
-			if (roomType> 0 && roomType<4){
-				if (roomType==1){
+			if (roomType > 0 && roomType < 6) {
+				if (roomType == 1) {
 					roomTypeName = "STANDARD";
-				}
-				else if (roomType==2){
+				} else if (roomType == 3) {
 					roomTypeName = "DELUXE";
-				}
-				else{
+				} else {
 					roomTypeName = "SINGLE";
 				}
 
 			}
-			String sqlQueryToGetId="SELECT id From Room_Type WHERE room_type_name =" +" '"+ roomTypeName +" '" ;
 
-			Statement st = null;
-			Integer id = 1;
-			// My options start with 1 therefore we did 1 if i make it 0 it will rise an error and it will by default 0 but that is not an option.
-//			// So we make a choice that when there is an error the assigned roomTypeName is STANDARD by default
-
+			String sqlQueryToGetId = "SELECT id From Room_Type WHERE room_type_name =" + " '" + roomTypeName + " '";
 			try {
 				st = con.createStatement();
-				ResultSet resultSet= st.executeQuery(sqlQueryToGetId);
-				while (resultSet.next()){
-					id = resultSet.getInt("id");
+				ResultSet resultSet = st.executeQuery(sqlQueryToGetId);
+				while (resultSet.next()) {
+					idForRoomType = resultSet.getInt("id");
 				}
-			} catch (SQLException e) {
-				throw new RuntimeException(e);
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
 
-
-
-
-
-			String hotelName = "Rawdha" + numberOfRandomUserInput;
-			String hotelLocation = "Rawdha" + numberOfRandomUserInput;
-			Date date = new Date(System.currentTimeMillis());
-
-			System.out.println(date);
-			String sqlQueryToInsert = "  INSERT INTO Rooms (room_type_id,hotel_id ,created_date,updated_date,is_Active)"
-					+ " VALUES ( ? , ? ,  " +'" + date+ ) ";
-
-			System.out.println("This is the query: " + sqlQueryToInsert);
-
-			try {
-				Statement st = con.createStatement();
-				int executing = st.executeUpdate(sqlQueryToInsert);
-				if (executing >= 0) {
-					System.out.println("Created Successfully : " + sqlQueryToInsert);
+			System.out.println(" Which Hotel Do You Want ? " + " 1 : Four Seasons " + " 2 : Hyatt" + " 3 : Hollywood ");
+			int hotelId = scanner.nextInt();
+			String hotelName = "";
+			if (hotelId > 0 && hotelId < 4) {
+				if (hotelId == 1) {
+					hotelName = "Four Seasons";
+				} else if (hotelId == 2) {
+					hotelName = "Hyatt";
 				} else {
-					System.out.println("Creation Is Failed");
+					hotelName = "Hollywood";
 				}
 
-//                closingConnection();
-			} catch (Exception ex) {
+			}
+			String sqlQueryToGetHotelId = "SELECT id From Hotels WHERE hotel_name =" + " '" + hotelName + " '";
+			try {
+				st = con.createStatement();
+				ResultSet resultSet = st.executeQuery(sqlQueryToGetHotelId);
+				while (resultSet.next()) {
+					idForHotel = resultSet.getInt("id");
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 
-				System.err.println(ex);
+			String sqlQueryToInsert = "INSERT INTO Rooms (room_type_id,hotel_id ,created_date,is_Active)" + "Values ("
+					+ idForRoomType + "," + idForHotel + ",'" + date + "'," + 1 + ")";
+
+			System.out.println("This is the query to insert into rooms table: " + sqlQueryToInsert);
+			try {
+				st = con.createStatement();
+				ResultSet e = st.executeQuery(sqlQueryToInsert);
+
+			} catch (SQLException e1) {
+				System.out.println(e1.getLocalizedMessage());
+				// TODO Auto-generated catch block
+//				e1.printStackTrace();
 			}
 		}
 	}
@@ -277,42 +289,5 @@ public class Rooms {
 		}
 
 	}
-	public static void RoomTableCreation() {
 
-		String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
-
-		String user = "sa";
-		String pass = "root";
-
-
-		Connection con = null;
-
-		try {
-
-			Driver driver = (Driver) Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
-
-			DriverManager.registerDriver(driver);
-
-			con = DriverManager.getConnection(url, user, pass);
-
-			Statement st = con.createStatement();
-//				st.executeUpdate(tableCreationsql);
-			// Executing query
-			int Executing = st.executeUpdate(RoomtableCreationsql);
-			if (Executing >= 0) {
-				System.out.println("Created Successfully : " + RoomtableCreationsql);
-			} else {
-				System.out.println("Creation Is Failed");
-			}
-
-			// Closing the connections
-			con.close();
-		}
-
-		// Catch block to handle exceptions
-		catch (Exception ex) {
-			// Display message when exceptions occurs
-			System.err.println(ex);
-		}
-	}
 }
