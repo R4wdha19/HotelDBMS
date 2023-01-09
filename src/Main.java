@@ -27,13 +27,13 @@ public class Main {
 			int op = Integer.parseInt(option);
 			switch (op) {
 			case 1:
-				MyHotels.HotelMenu();
+				HotelsMenu.HotelMenu();
 				break;
 			case 2:
-				MyHotelRooMType.RoomTypeMenu();
+				HotelRoomTypeMenu.RoomTypeMenu();
 				break;
 			case 3:
-				Rooms.insertIntoTable();
+				HotelRoomsMenu.RoomsMenu();
 				break;
 			case 4:
 				Rooms.CreateRoomsTable();

@@ -92,7 +92,7 @@ public class Rooms {
 					idForRoomType = resultSet.getInt("id");
 				}
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
+
 				e1.printStackTrace();
 			}
 
@@ -117,7 +117,6 @@ public class Rooms {
 					idForHotel = resultSet.getInt("id");
 				}
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 
@@ -131,8 +130,6 @@ public class Rooms {
 
 			} catch (SQLException e1) {
 				System.out.println(e1.getLocalizedMessage());
-				// TODO Auto-generated catch block
-//				e1.printStackTrace();
 			}
 		}
 	}
@@ -141,19 +138,19 @@ public class Rooms {
 		System.out.println(" Please Enter The Number Of Rows To Be Shown ");
 		Scanner inputScanner = new Scanner(System.in);
 		int userInput = inputScanner.nextInt();
-		String sqlQueryToRead = "SELECT TOP " + userInput + " * FROM hotels";
+		String sqlQueryToRead = "SELECT TOP " + userInput + " * FROM Rooms";
 		try {
 			Statement statement = con.createStatement();
 			ResultSet resultSet = statement.executeQuery(sqlQueryToRead);
 			while (resultSet.next()) {
 				Integer id = resultSet.getInt("id");
-				String hotelName = resultSet.getString("hotel_name");
-				String hotelLocation = resultSet.getString("hotel_location");
+				Integer roomTypeId = resultSet.getInt("room_type_id");
+				Integer hotelId = resultSet.getInt("hotel_id");
 				Date createdDate = resultSet.getDate("created_date");
 				Date updatedDate = resultSet.getDate("updated_date");
 				Boolean isActive = resultSet.getBoolean("is_Active");
-				System.out.println(id + " " + hotelName + " " + hotelLocation + " " + createdDate + " " + updatedDate
-						+ " " + isActive);
+				System.out.println(
+						id + " " + roomTypeId + " " + hotelId + " " + createdDate + " " + updatedDate + " " + isActive);
 			}
 //            closingConnection();
 		} catch (Exception ex) {
@@ -168,20 +165,20 @@ public class Rooms {
 		Scanner inputScanner = new Scanner(System.in);
 		int userInput = inputScanner.nextInt();
 
-		String sqlQueryToRead = "SELECT * FROM hotels WHERE id =" + userInput;
+		String sqlQueryToRead = "SELECT * FROM Rooms WHERE id =" + userInput;
 		try {
 			Statement statement = con.createStatement();
 			ResultSet resultSet = statement.executeQuery(sqlQueryToRead);
 //            int count = 0; we can not use count here because it will limit my results
 			while (resultSet.next()) {
 				Integer id = resultSet.getInt("id");
-				String hotelName = resultSet.getString("hotel_name");
-				String hotelLocation = resultSet.getString("hotel_location");
+				Integer roomTypeId = resultSet.getInt("room_type_id");
+				Integer hotelId = resultSet.getInt("hotel_id");
 				Date createdDate = resultSet.getDate("created_date");
 				Date updatedDate = resultSet.getDate("updated_date");
 				Boolean isActive = resultSet.getBoolean("is_Active");
-				System.out.println(id + " " + hotelName + " " + hotelLocation + " " + createdDate + " " + updatedDate
-						+ " " + isActive);
+				System.out.println(
+						id + " " + roomTypeId + " " + hotelId + " " + createdDate + " " + updatedDate + " " + isActive);
 			}
 //            closingConnection();
 		} catch (Exception ex) {
@@ -190,60 +187,31 @@ public class Rooms {
 		}
 
 	}
+// We DONT USE UPDATEBYID FUN FOR ROOMS COZ WE CAN NOT UPDATE THE Foreign key
 
 	public static void updateById() {
-		System.out.println(" Please Enter The ID To Update Its Data");
-		Scanner inputScanner = new Scanner(System.in);
-		int userInput = inputScanner.nextInt();
-		System.out.println(" Please Enter The New Hotel Name");
-		String hotelName = inputScanner.next();
-		System.out.println(" Please Enter The New Hotel Location");
-		String hotelLocation = inputScanner.next();
-		Date date = new Date(System.currentTimeMillis());
-		String sqlQueryToUpdate = "UPDATE HOTELS SET hotel_name = " + "'" + hotelName + "'" + ", hotel_location = "
-				+ "'" + hotelLocation + "'," + " updated_date = " + "'" + date + "' WHERE id =" + userInput;
-		System.out.println(sqlQueryToUpdate);
-		try {
-			Statement statement = con.createStatement();
-			ResultSet resultSet = statement.executeQuery(sqlQueryToUpdate);
-			System.out.println(resultSet);
-
-			while (resultSet.next()) {
-				Integer id = resultSet.getInt("id");
-				String hotel_Name = resultSet.getString("hotel_name");
-				String hotel_Location = resultSet.getString("hotel_location");
-				Date createdDate = resultSet.getDate("created_date");
-				Date updatedDate = resultSet.getDate("updated_date");
-				Boolean isActive = resultSet.getBoolean("is_Active");
-				System.out.println(id + " " + hotel_Name + " " + hotel_Location + " " + createdDate + " " + updatedDate
-						+ " " + isActive);
-			}
-//            closingConnection();
-		} catch (Exception ex) {
-
-			System.err.println(ex);
-		}
+		System.out.println(" SORRY WE CAN NOT UPDATE IT");
 	}
 
 	public static void deleteById() {
 		System.out.println(" Please Enter The ID To Delete The Row");
 		Scanner inputScanner = new Scanner(System.in);
 		int userInput = inputScanner.nextInt();
-		String sqlQueryToRead = "DELETE FROM Hotels WHERE id =" + userInput;
+		String sqlQueryToRead = "DELETE FROM Rooms WHERE id =" + userInput;
 		try {
 			Statement statement = con.createStatement();
 			ResultSet resultSet = statement.executeQuery(sqlQueryToRead);
 			while (resultSet.next()) {
 				Integer id = resultSet.getInt("id");
-				String hotelName = resultSet.getString("hotel_name");
-				String hotelLocation = resultSet.getString("hotel_location");
+				Integer roomTypeId = resultSet.getInt("room_type_id");
+				Integer hotelId = resultSet.getInt("hotel_id");
 				Date createdDate = resultSet.getDate("created_date");
 				Date updatedDate = resultSet.getDate("updated_date");
 				Boolean isActive = resultSet.getBoolean("is_Active");
-				System.out.println(id + " " + hotelName + " " + hotelLocation + " " + createdDate + " " + updatedDate
-						+ " " + isActive);
+				System.out.println(
+						id + " " + roomTypeId + " " + hotelId + " " + createdDate + " " + updatedDate + " " + isActive);
 			}
-//            closingConnection();
+
 		} catch (Exception ex) {
 
 			System.err.println(ex);
@@ -256,7 +224,7 @@ public class Rooms {
 		Scanner inputScanner = new Scanner(System.in);
 		System.out.println(" Please Enter The Number Of Rows  To Update Its Status");
 		int userInput = inputScanner.nextInt();
-		String sqlQueryToSelect = "SELECT TOP " + userInput + " id FROM Hotels";
+		String sqlQueryToSelect = "SELECT TOP " + userInput + " id FROM Rooms";
 		Statement statement;
 		List<Integer> listOfIds = new ArrayList<>();
 		try {
@@ -274,7 +242,7 @@ public class Rooms {
 		}
 		for (Integer i : listOfIds) {
 			System.out.println("Id is: " + i);
-			String sqlQueryToUpdate = "UPDATE HOTELS SET is_active = 0 where id = " + i;
+			String sqlQueryToUpdate = "UPDATE Rooms SET is_active = 0 where id = " + i;
 			System.out.println(sqlQueryToUpdate);
 			try {
 				statement = con.createStatement();

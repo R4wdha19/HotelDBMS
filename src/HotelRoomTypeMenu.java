@@ -2,7 +2,7 @@ package src;
 
 import java.util.Scanner;
 
-class MyHotelRooMType {
+class HotelRoomTypeMenu {
 	public static void RoomTypeMenu() {
 		boolean RoomTypeMenu = true;
 		while (RoomTypeMenu) {
@@ -43,7 +43,7 @@ class MyHotelRooMType {
 			case 8:
 				System.out.println(" Do You Want To Exit ? If Yes Press 1 If No Press 0 ");
 				int confirmation = sc.nextInt();
-				sc.next();
+
 				if (confirmation == 1) {
 					RoomTypeMenu = false;
 //					Main.mainMenu();
@@ -52,7 +52,7 @@ class MyHotelRooMType {
 				break;
 			}
 
-		}
+		} // resetting loop
 		RoomTypeMenu = false;
 
 	}

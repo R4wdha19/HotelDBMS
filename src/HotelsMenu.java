@@ -2,7 +2,7 @@ package src;
 
 import java.util.Scanner;
 
-class MyHotels {
+class HotelsMenu {
 
 	public static void HotelMenu() {
 		boolean HotelMenu = true;
@@ -42,12 +42,17 @@ class MyHotels {
 				Hotels.updateIsActive();
 				break;
 			case 8:
-				Main.mainMenu();
+				System.out.println(" Do You Want To Exit ? If Yes Press 1 If No Press 0 ");
+				int confirmation = sc.nextInt();
+
+				if (confirmation == 1) {
+					HotelMenu = false;
+
+				}
 				break;
 			}
-
+			HotelMenu = false;
 		}
-		HotelMenu = false;
-	}
 
+	}
 }
