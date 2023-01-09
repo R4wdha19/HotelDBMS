@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
 import java.util.Scanner;
-
 public class Guests {
 
 	public static final String url = "jdbc:sqlserver://localhost:1433;databaseName=HotelDBMS;encrypt=true;trustServerCertificate=true";
@@ -145,5 +144,7 @@ public class Guests {
 			}
 		}
 	}
+
+
 
 }
