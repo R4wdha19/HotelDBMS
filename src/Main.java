@@ -36,8 +36,8 @@ public class Main {
 				HotelRoomsMenu.RoomsMenu();
 				break;
 			case 4:
-				Rooms.CreateRoomsTable();
-				;
+				HotelGuestMenu.GuestMenu();
+
 				break;
 			case 5:
 				EmployeeType.EmployeeTypeTableCreation();
