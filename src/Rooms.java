@@ -1,7 +1,11 @@
 package src;
 
-import javax.swing.*;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -49,6 +53,7 @@ public class Rooms {
 		}
 
 	}
+
 	public static void insertIntoTable() {
 		System.out.println(" Please Enter The Number Of Rows To Be Added");
 		Scanner inputScanner = new Scanner(System.in);
@@ -64,12 +69,9 @@ public class Rooms {
 		for (int i = 0; i <= userInput; i++) {
 			Integer numberOfRandomUserInput = rn.nextInt(userInput); // ()my limit
 
-			Scanner scanner=new Scanner(System.in);
-			System.out.println(" Which Room Type Do You Want ? " +
-					" 1 : STANDARD " +
-					" 3 : DELUXE" +
-					" 4 : SINGLE");
-			int roomType=scanner.nextInt();
+			Scanner scanner = new Scanner(System.in);
+			System.out.println(" Which Room Type Do You Want ? " + " 1 : STANDARD " + " 3 : DELUXE" + " 4 : SINGLE");
+			int roomType = scanner.nextInt();
 			String roomTypeName = "";
 			if (roomType > 0 && roomType < 6) {
 				if (roomType == 1) {
@@ -81,7 +83,6 @@ public class Rooms {
 				}
 
 			}
-
 
 			String sqlQueryToGetId = "SELECT id From Room_Type WHERE room_type_name =" + " '" + roomTypeName + " '";
 			try {
@@ -133,7 +134,6 @@ public class Rooms {
 		}
 	}
 
-	
 	public static void readFromTable() {
 		System.out.println(" Please Enter The Number Of Rows To Be Shown ");
 		Scanner inputScanner = new Scanner(System.in);
@@ -168,7 +168,7 @@ public class Rooms {
 		try {
 			Statement statement = con.createStatement();
 			ResultSet resultSet = statement.executeQuery(sqlQueryToRead);
-//            int count = 0; we can not use count here because it will limit my results
+
 			while (resultSet.next()) {
 				Integer id = resultSet.getInt("id");
 				Integer roomTypeId = resultSet.getInt("room_type_id");
@@ -179,7 +179,6 @@ public class Rooms {
 				System.out.println(
 						id + " " + roomTypeId + " " + hotelId + " " + createdDate + " " + updatedDate + " " + isActive);
 			}
-//            closingConnection();
 		} catch (Exception ex) {
 
 			System.err.println(ex);

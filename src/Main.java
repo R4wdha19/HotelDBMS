@@ -40,11 +40,12 @@ public class Main {
 
 				break;
 			case 5:
-				EmployeeType.EmployeeTypeTableCreation();
+				HotelEmployeeTypeMenu.EmployeeTypeMenu();
 				break;
 			case 6:
-				Employees.EmployeesTableCreation();
+				HotelEmployeeMenu.EmployeeMenu();
 			}
+
 		}
 		mainMenu = false;
 
