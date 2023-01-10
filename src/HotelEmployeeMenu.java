@@ -29,19 +29,19 @@ public class HotelEmployeeMenu {
 				Employee.insertIntoTable();
 				break;
 			case 3:
-				// Employee.readFromTable();
+				Employee.readFromTable();
 				break;
 			case 4:
-				// Employee.getById();
+				Employee.getById();
 				break;
 			case 5:
-				// Employee.updateById();
+				Employee.updateById();
 				break;
 			case 6:
-				// Employee.deleteById();
+				Employee.deleteById();
 				break;
 			case 7:
-				// Employee.updateIsActive();
+				Employee.updateIsActive();
 				break;
 			case 8:
 				System.out.println(" Do You Want To Exit ? If Yes Press 1 If No Press 0 ");

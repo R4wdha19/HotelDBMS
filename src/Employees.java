@@ -186,7 +186,7 @@ public class Employees {
 			System.out.println(" Please Enter The Number Of Rows To Be Shown ");
 			Scanner inputScanner = new Scanner(System.in);
 			int userInput = inputScanner.nextInt();
-			String sqlQueryToRead = "SELECT TOP " + userInput + " * FROM EmployeeType";
+			String sqlQueryToRead = "SELECT TOP " + userInput + " * FROM Employees";
 			try {
 				Statement statement = con.createStatement();
 				ResultSet resultSet = statement.executeQuery(sqlQueryToRead);

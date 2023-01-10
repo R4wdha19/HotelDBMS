@@ -65,8 +65,9 @@ public class Hotels {
 		Random rn = new Random();
 		for (int i = 0; i <= userInput; i++) {
 			Integer numberOfRandomUserInput = rn.nextInt(userInput); // ()my limit
-			String hotelName = "Rawdha" + numberOfRandomUserInput;
-			String hotelLocation = "Rawdha" + numberOfRandomUserInput;
+			System.out.println(" Please Enter The Name Of The Hotel");
+			String hotelName = inputScanner.next() + numberOfRandomUserInput;
+			String hotelLocation = "MUSCAT";
 			Date date = new Date(System.currentTimeMillis());
 
 			System.out.println(date);
