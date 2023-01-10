@@ -27,19 +27,19 @@ public class HotelGuestMenu {
 				Guests.insertIntoTable();
 				break;
 			case 3:
-				Hotels.readFromTable();
+				Guests.readFromTable();
 				break;
 			case 4:
-				Hotels.getById();
+				Guests.getById();
 				break;
 			case 5:
-				Hotels.updateById();
+				Guests.updateById();
 				break;
 			case 6:
-				Hotels.deleteById();
+				Guests.deleteById();
 				break;
 			case 7:
-				Hotels.updateIsActive();
+				Guests.updateIsActive();
 				break;
 			case 8:
 				System.out.println(" Do You Want To Exit ? If Yes Press 1 If No Press 0 ");
