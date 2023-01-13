@@ -59,7 +59,7 @@ public class EmployeeType {
 		Scanner inputScanner = new Scanner(System.in);
 		int userInput = inputScanner.nextInt();
 		Random rn = new Random();
-		for (int i = 0; i <= userInput; i++) {
+		for (int i = 0; i < userInput; i++) {
 			System.out.println(" Please Enter The Employee Type Name");
 			String employeeTypeName = inputScanner.next();
 			Date date = new Date(System.currentTimeMillis());

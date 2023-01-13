@@ -63,7 +63,7 @@ public class Hotels {
 		Scanner inputScanner = new Scanner(System.in);
 		int userInput = inputScanner.nextInt();
 		Random rn = new Random();
-		for (int i = 0; i <= userInput; i++) {
+		for (int i = 0; i < userInput; i++) {
 			Integer numberOfRandomUserInput = rn.nextInt(userInput); // ()my limit
 			System.out.println(" Please Enter The Name Of The Hotel");
 			String hotelName = inputScanner.next() + numberOfRandomUserInput;
@@ -73,8 +73,6 @@ public class Hotels {
 			System.out.println(date);
 			String sqlQueryToInsert = "  INSERT INTO Hotels (hotel_Name,hotel_Location,created_date,is_Active)"
 					+ " VALUES ( '" + hotelName + "'," + " ' " + hotelLocation + "','" + date + "'" + ", 1) ";
-
-			System.out.println("This is the query: " + sqlQueryToInsert);
 
 			try {
 				Statement st = con.createStatement();

@@ -69,7 +69,7 @@ public class Employees {
 			Integer idForRoomType = 1;
 			Integer idForHotel = 1;
 			Integer idForRoom = 1;
-			for (int i = 0; i <= userInput; i++) {
+			for (int i = 0; i < userInput; i++) {
 				Integer numberOfRandomUserInput = rn.nextInt(userInput); // ()my limit
 
 				Scanner scanner = new Scanner(System.in);

@@ -61,11 +61,16 @@ public class RoomType {
 		Scanner sc1 = new Scanner(System.in);
 		int userInput = sc1.nextInt();
 		Random rn = new Random();
-		for (int i = 0; i <= userInput; i++) {
+		for (int i = 0; i < userInput; i++) {
 			Integer numberOfRandomUserInput = rn.nextInt(userInput); // ()my limit
-			String roomTypeName = "Rawdha" + numberOfRandomUserInput;
-			String sqlQueryToInsert = "  INSERT INTO Room_Type (room_type_name,created_date,is_Active)" + " VALUES ( '"
-					+ roomTypeName + "'" + ", '" + date + "','" + date + "', 1) ";
+			String roomTypeNameOne = "STANDARD";
+			String roomTypeNameTwo = "DELUXE";
+			String roomTypeNameThree = "SINGLE";
+			String sqlQueryToInsert = "  INSERT INTO Room_Type (room_type_name,created_date,is_Active)" +
+					" VALUES ( '" + roomTypeNameOne + "'" + ",'" + date + "', 1) ," +
+					"( '" +roomTypeNameTwo +" '" +", ' "+ date + "', 1) ," +
+					"( '"+roomTypeNameThree +" '" +",' "+ date + "', 1) ";
+
 			try {
 				Statement st = con.createStatement();
 				int executing = st.executeUpdate(sqlQueryToInsert);

@@ -8,7 +8,7 @@ public class Main {
 
 		System.out.println("Please Select An Option :");
 		System.out.println("1 : HotelMenu ");
-		System.out.println("2 : RooM Type Menu");
+		System.out.println("2 : Room Type Menu");
 		System.out.println("3 : Room Menu");
 		System.out.println("4 : Guests Menu");
 		System.out.println("5 : Employee Type Menu");

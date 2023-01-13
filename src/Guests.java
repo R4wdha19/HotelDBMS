@@ -64,7 +64,7 @@ public class Guests {
 		Integer idForRoomType = 1;
 		Integer idForHotel = 1;
 		Date date = new Date(System.currentTimeMillis());
-		for (int i = 0; i <= userInput; i++) {
+		for (int i = 0; i < userInput; i++) {
 			System.out.println(" What Is The Guest Name?");
 			String guestName = inputScanner.next();
 			System.out.println(" What Is The Guest Phone Number?");

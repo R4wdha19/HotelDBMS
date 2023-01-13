@@ -66,7 +66,9 @@ public class Rooms {
 		// My options start with 1 therefore we did 1 if i make it 0 it will rise an
 		// error and it will by default 0 but that is not an option.
 //		// So we make a choice that when there is an error the assigned roomTypeName is STANDARD by default
-		for (int i = 0; i <= userInput; i++) {
+		for (int i = 0; i < userInput; i++) { // WE REMOVE = BECAUSE ?
+			//<= INPUT = 5, lOOPS RUN LIKE 0,1,2,3,4,5
+			// < input = 5, LOOPS RUN LIKE 0,1,2,3,4
 			Integer numberOfRandomUserInput = rn.nextInt(userInput); // ()my limit
 
 			Scanner scanner = new Scanner(System.in);
