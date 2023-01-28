@@ -66,8 +66,9 @@ public class Hotels {
 		for (int i = 0; i < userInput; i++) {
 			Integer numberOfRandomUserInput = rn.nextInt(userInput); // ()my limit
 			System.out.println(" Please Enter The Name Of The Hotel");
-			String hotelName = inputScanner.next() + numberOfRandomUserInput;
-			String hotelLocation = "MUSCAT";
+			String hotelName = inputScanner.next() ;//+ numberOfRandomUserInput;
+			System.out.println(" Please Enter The Location Of The Hotel");
+			String hotelLocation = inputScanner.next() ;
 			Date date = new Date(System.currentTimeMillis());
 
 			System.out.println(date);
@@ -98,8 +99,8 @@ public class Hotels {
 		String sqlQueryToRead = "SELECT TOP " + userInput + " * FROM hotels";
 		try {
 			Statement statement = con.createStatement();
-			ResultSet resultSet = statement.executeQuery(sqlQueryToRead);
-			while (resultSet.next()) {
+			ResultSet resultSet = statement.executeQuery(sqlQueryToRead);   // we use it coz we have a list of data
+			while (resultSet.next()) {   // checking data line by line and then printing them. the loop gets reset and the values change
 				Integer id = resultSet.getInt("id");
 				String hotelName = resultSet.getString("hotel_name");
 				String hotelLocation = resultSet.getString("hotel_location");

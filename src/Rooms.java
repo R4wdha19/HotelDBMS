@@ -103,7 +103,7 @@ public class Rooms {
 			String hotelName = "";
 			if (hotelId > 0 && hotelId < 4) {
 				if (hotelId == 1) {
-					hotelName = "Four Seasons";
+					hotelName = "FourSeasons";
 				} else if (hotelId == 2) {
 					hotelName = "Hyatt";
 				} else {

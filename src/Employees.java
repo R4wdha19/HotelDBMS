@@ -39,7 +39,8 @@ public class Employees {
 		public static void CreateEmployeesTable() {
 
 			String EmployeestableCreationsql = "create table  Employees (id integer PRIMARY KEY IDENTITY(1,1),"
-					+ "employee_type_id int REFERENCES EmployeeType(id)," + "room_id int REFERENCES Rooms(id),"
+					+ "employee_type_id int REFERENCES EmployeeType(id),"+
+					"employee_name VARCHAR(200)," + "room_id int REFERENCES Rooms(id),"
 					+ "created_date Date not null," + "updated_date Date," + "is_Active bit not null)";
 
 			try {
@@ -73,12 +74,15 @@ public class Employees {
 				Integer numberOfRandomUserInput = rn.nextInt(userInput); // ()my limit
 
 				Scanner scanner = new Scanner(System.in);
+				System.out.println(" What is the name of the employee ?");
+				String employeeName=scanner.next();
+
 				System.out.println(" Which Employee Type Do You Want ? " + " 1 : MANAGER " + " 2 : ATTENDANT"
 						+ " 3 : VALET" + " 4 : BUTLER" + " 5 : DIRECTOR");
 				int EmployeeType = scanner.nextInt();
 				String EmployeeTypeName = "";
 				if (EmployeeType > 0 && EmployeeType < 6) {
-					if (idForEmployeeType == 1) {
+					if (EmployeeType == 1) {
 						EmployeeTypeName = "MANAGER";
 					} else if (EmployeeType == 2) {
 						EmployeeTypeName = "ATTENDANT";
@@ -103,8 +107,7 @@ public class Employees {
 
 					e1.printStackTrace();
 				}
-				System.out
-						.println(" Which Room Type Do You Want ? " + " 1 : STANDARD " + " 3 : DELUXE" + " 4 : SINGLE");
+				System.out.println(" Which Room Type Do You Want ? " + " 1 : STANDARD " + " 3 : DELUXE" + " 4 : SINGLE");
 				int roomType = scanner.nextInt();
 				String roomTypeName = "";
 				if (roomType > 0 && roomType < 6) {
@@ -156,11 +159,11 @@ public class Employees {
 					e1.printStackTrace();
 				}
 
-				String sqlQueryToGetRoomlId = "SELECT id From Rooms WHERE hotel_id =" + idForHotel
+				String sqlQueryToGetRoomId = "SELECT id From Rooms WHERE hotel_id =" + idForHotel
 						+ " AND room_type_id = " + idForRoomType;
 				try {
 					st = con.createStatement();
-					ResultSet resultSet = st.executeQuery(sqlQueryToGetHotelId);
+					ResultSet resultSet = st.executeQuery(sqlQueryToGetRoomId);
 					while (resultSet.next()) {
 						idForRoom = resultSet.getInt("id");
 					}
@@ -168,8 +171,8 @@ public class Employees {
 					e1.printStackTrace();
 				}
 
-				String sqlQueryToInsert = "INSERT INTO Employees (employee_type_id,room_id ,created_date,is_Active)"
-						+ "Values (" + idForEmployeeType + "," + idForRoom + ",'" + date + "'," + 1 + ")";
+				String sqlQueryToInsert = "INSERT INTO Employees (employee_type_id,room_id,created_date,is_Active,employee_name)"
+						+ "Values (" + idForEmployeeType + "," + idForRoom + ",'" + date + "'," + 1 + ",'"+ employeeName+"'"+")";
 
 				System.out.println("This is the query to insert into Employees table: " + sqlQueryToInsert);
 				try {

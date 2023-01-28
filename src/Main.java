@@ -13,6 +13,8 @@ public class Main {
 		System.out.println("4 : Guests Menu");
 		System.out.println("5 : Employee Type Menu");
 		System.out.println("6 : Employees Menu ");
+		System.out.println("7 : Hotel Management Menu ");
+
 
 	}
 
@@ -44,6 +46,12 @@ public class Main {
 				break;
 			case 6:
 				HotelEmployeeMenu.EmployeeMenu();
+				break;
+				case 7:
+					HotelManagementMenu.hotelManagementMenuList();
+					break;
+
+
 			}
 
 		}

@@ -20,39 +20,40 @@ class HotelsMenu {
 			String option = sc.next();
 			int op = Integer.parseInt(option);
 			switch (op) {
-			case 1:
-				Hotels.CreateHotelsTable();
-				break;
-			case 2:
-				Hotels.insertIntoTable();
-				break;
-			case 3:
-				Hotels.readFromTable();
-				break;
-			case 4:
-				Hotels.getById();
-				break;
-			case 5:
-				Hotels.updateById();
-				break;
-			case 6:
-				Hotels.deleteById();
-				break;
-			case 7:
-				Hotels.updateIsActive();
-				break;
-			case 8:
-				System.out.println(" Do You Want To Exit ? If Yes Press 1 If No Press 0 ");
-				int confirmation = sc.nextInt();
+				case 1:
+					Hotels.CreateHotelsTable();
+					break;
+				case 2:
+					Hotels.insertIntoTable();
+					break;
+				case 3:
+					Hotels.readFromTable();
+					break;
+				case 4:
+					Hotels.getById();
+					break;
+				case 5:
+					Hotels.updateById();
+					break;
+				case 6:
+					Hotels.deleteById();
+					break;
+				case 7:
+					Hotels.updateIsActive();
+					break;
+				case 8:
+					System.out.println(" Do You Want To Exit ? If Yes Press 1 If No Press 0 ");
+					int confirmation = sc.nextInt();
 
-				if (confirmation == 1) {
-					HotelMenu = false;
+					if (confirmation == 1) {
+						HotelMenu = false;
+						break;
+					}
 
-				}
-				break;
 			}
+		}
 			HotelMenu = false;
 		}
 
 	}
-}
+
